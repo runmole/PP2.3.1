@@ -1,15 +1,40 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title><ALL USERS</title>
+    <style>table th, table td {padding: 5px;}</style>
 </head>
 <body>
-<div>
-    <th:block th:each="msg : ${messages}">
-        <h1 th:text="${msg}"></h1>
-    </th:block>
-</div>
+<h1></h1>
+<table border="1">
+    <caption>Users</caption>
+
+    <thead>
+    <tr>
+        <th scope="col">id</th>
+        <th scope="col">name</th>
+        <th scope="col">surname</th>
+        <th scope="col">age</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user: ${user}">
+        <td><a th:href="@{/users/{id}(id=${user.getId()})}" th:text ="${user.getId()}">VALUE</a></td>
+        <td th:text="${user.name}"/>
+        <td th:text="${user.surname}"/>
+        <td th:text="${user.age}"/>
+    </tr>
+    </tbody>
+</table>
+
+<br/>
+<hr/>
+
+<a href="/users/add">Create new User</a>
+<!--<br>-->
+<!--<a th:href="@{/}">Go to hello page</a>-->
+
 </body>
 </html>
