@@ -37,7 +37,7 @@ public class User {
     @Column(name = "surname")
     private String surname;
 
-    @NotNull(message = "Name should not be empty")
+    @NotNull(message = "Age should not be empty")
     @Max(value = 120, message = "Age should be under 120 y.o.")
     @Column(name = "age")
     private int age;
